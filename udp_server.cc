@@ -13,10 +13,9 @@ void write_file(int sockfd, struct sockaddr_in addr){
   char buffer[SIZE];
   socklen_t addr_size;
 
-  // Creating a file.
   fp = fopen(filename, "w");
 
-  // Receiving the data and writing it into the file.
+
   while(1){
 
     addr_size = sizeof(addr);
@@ -39,17 +38,17 @@ void write_file(int sockfd, struct sockaddr_in addr){
 
 int main(){
 
-  // Defining the IP and Port
+
   char *ip = "127.0.0.1";
   int port = 8080;
 
-  // Defining variables
+
   int server_sockfd;
   struct sockaddr_in server_addr, client_addr;
   char buffer[SIZE];
   int e;
 
-  // Creating a UDP socket
+
   server_sockfd = socket(AF_INET, SOCK_DGRAM, 0);
   if (server_sockfd < 0){
     perror("[ERROR] socket error");
